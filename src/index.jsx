@@ -1,10 +1,14 @@
 import './style.css'
 import ReactDOM from 'react-dom/client'
+import { Canvas } from '@react-three/fiber'
 
 const root = ReactDOM.createRoot(document.querySelector('#root'))
 
 root.render(
-    <>
-        Soon to be a badass R3F application
-    </>
+    <Canvas>
+        <mesh>
+            <torusKnotBufferGeometry />
+            <meshNormalMaterial />
+        </mesh>
+    </Canvas>
 )
