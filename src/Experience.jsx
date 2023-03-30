@@ -1,6 +1,9 @@
 import { useFrame } from "@react-three/fiber";
 import { useRef } from "react";
 
+// import testVertexShader from './vertex.glsl'
+// import testFragmentShader from './fragment.glsl'
+
 export default function Experience() {
 
     const cubeRef = useRef();
@@ -9,7 +12,7 @@ export default function Experience() {
 
     useFrame((state, delta) => {
         cubeRef.current.rotation.y += delta;
-        groupRef.current.rotation.y += delta;
+        // groupRef.current.rotation.y += delta;
     });
 
     return (
@@ -27,6 +30,16 @@ export default function Experience() {
             <mesh position-y={ - 1.0 } rotation-x={ - Math.PI * 0.5 } scale={ 10.0 }>
                 <planeGeometry />
                 <meshBasicMaterial color="greenyellow" />
+                {/* <shaderMaterial 
+                    attach="material"
+                    vertexShader={ testVertexShader }
+                    fragmentShader={ testFragmentShader }
+                    uniforms={
+                        uFrequency: { value: new THREE.Vector2(10, 5) }
+                        uTime: { value: 0 }
+                        uColor: { value: new THREE.Color('orange') }
+                    }
+                /> */}
             </mesh>
         </>
     );
