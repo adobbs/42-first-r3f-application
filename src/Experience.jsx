@@ -5,6 +5,7 @@ import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 import testVertexShader from './shaders/vertex.glsl'
 import testFragmentShader from './shaders/fragment.glsl'
 import { DoubleSide } from "three";
+import CustomObject from "./CustomObject";
 
 extend({ OrbitControls });
 
@@ -45,8 +46,6 @@ export default function Experience() {
                     fragmentShader={ testFragmentShader }
 
                     // wireframe
-
-                    // side={ DoubleSide }
                 />
                 {/* <shaderMaterial 
                     attach="material"
@@ -59,6 +58,8 @@ export default function Experience() {
                     }
                 /> */}
             </mesh>
+
+            <CustomObject />
         </>
     );
 }
