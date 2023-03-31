@@ -2,8 +2,9 @@ import { useThree, extend, useFrame } from "@react-three/fiber";
 import { useRef } from "react";
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 
-// import testVertexShader from './vertex.glsl'
-// import testFragmentShader from './fragment.glsl'
+import testVertexShader from './shaders/vertex.glsl'
+import testFragmentShader from './shaders/fragment.glsl'
+import { DoubleSide } from "three";
 
 extend({ OrbitControls });
 
@@ -36,8 +37,17 @@ export default function Experience() {
                 </mesh>
             </group>
             <mesh position-y={ - 1.0 } rotation-x={ - Math.PI * 0.5 } scale={ 10.0 }>
-                <planeGeometry />
-                <meshStandardMaterial color="greenyellow" />
+                <planeGeometry args={[1.0, 1.0, 32, 32]}/>
+                {/* <meshStandardMaterial color="greenyellow" /> */}
+                <rawShaderMaterial
+                    vertexShader={ testVertexShader }
+
+                    fragmentShader={ testFragmentShader }
+
+                    // wireframe
+
+                    // side={ DoubleSide }
+                />
                 {/* <shaderMaterial 
                     attach="material"
                     vertexShader={ testVertexShader }
